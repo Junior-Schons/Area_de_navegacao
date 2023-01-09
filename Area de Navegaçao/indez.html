@@ -1,0 +1,79 @@
+<!DOCTYPE html>   
+  <html lang="pt-br">   
+  <head>   
+   <meta charset="UTF-8" />   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+   <title> Flex Hover Slider</title>   
+   <link rel="stylesheet" href="style.css">  
+   <link rel="text" href="jquery.">
+  </head>   
+  <body>   
+   <div class="flex-container">  
+     <div class="spinner"><p>  
+       <div class="cube1"></div>  
+       <div class="cube2"></div>  
+       carregando...  
+       </p>  
+     </div>  
+     <div class="flex-slide home">  
+       <div class="flex-title flex-title-home">Home</div>  
+       <div class="flex-about flex-about-home"><p>Um mundo novo para explorar </p></div>  
+     </div>  
+     <div class="flex-slide about">  
+       <div class="flex-title">Sobre</div>  
+       <div class="flex-about"><p>Click e conheça o local</p></div>  
+     </div>  
+     <div class="flex-slide work">  
+       <div class="flex-title">Cuidado</div>  
+       <div class="flex-about"><p>Como protegemos o Meio ambiente:</p>  
+         <ul>  
+           <li>preservamos a natureza</li>  
+           <li>Contrução sustentavel</li>  
+           <li>Energia limpa</li>  
+         </ul>  
+       </div>  
+     </div>  
+     <div class="flex-slide contact">  
+       <div class="flex-title">Contato</div>  
+           <div class="flex-about">  
+             <p>Entre em contato</p>  
+             <form class="contact-form">  
+               <p>Email. <input type="text" name="email"></p>  
+               <p>Comentario. <textarea type="text" name="comment" row="5"></textarea></p>  
+               <p><input type="submit" name="email" value="Send Message"></p>  
+             </form>  
+       </div>  
+     </div>  
+   </div>  
+ 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/jquery.waitforimages.min.js"></script>  
+   <script>
+    (function(){  
+  $('.flex-container').waitForImages(function() {  
+       $('.spinner').fadeOut();  
+  }, $.noop, true);  
+  $(".flex-slide").each(function(){  
+       $(this).hover(function(){  
+            $(this).find('.flex-title').css({  
+                 transform: 'rotate(0deg)',  
+                 top: '10%'  
+            });  
+            $(this).find('.flex-about').css({  
+                 opacity: '1'  
+            });  
+       }, function(){  
+            $(this).find('.flex-title').css({  
+                 transform: 'rotate(90deg)',  
+                 top: '15%'  
+            });  
+            $(this).find('.flex-about').css({  
+                 opacity: '0'  
+            });  
+       })  
+  });  
+})();  
+</script>
+  </body>   
+  </html>   
